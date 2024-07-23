@@ -5,10 +5,10 @@ import datetime
 import os
 
 # insert your Telegram bot token here
-bot = telebot.TeleBot('7210288831:AAG95BZh3LsdY98IJY7oW4c8EqKYA906c0M')
+bot = telebot.TeleBot('6552230441:AAEz_zsNKS8fhhVTPj_4VP69IR4X7YgKuls')
 
 # Admin user IDs
-admin_id = ["6107545405"]
+admin_id = ["944447435"]
 
 # File to store allowed user IDs
 USER_FILE = "users.txt"
@@ -67,8 +67,7 @@ def record_command_logs(user_id, command, target=None, port=None, time=None):
         log_entry += f" | Time: {time}"
     
     with open(LOG_FILE, "a") as file:
-        file.write(log_entry + "\n")
-
+        file.write(log_entry + "\n") 
 @bot.message_handler(commands=['add'])
 def add_user(message):
     user_id = str(message.chat.id)
@@ -219,8 +218,8 @@ def handle_bgmi(message):
             target = command[1]
             port = int(command[2])  # Convert time to integer
             time = int(command[3])  # Convert port to integer
-            if time > 241:
-                response = "Error: Time interval must be less than 240."
+            if time > 361:
+                response = "Error: Time interval must be less than 361."
             else:
                 record_command_logs(user_id, 'bgmi', target, port, time)
                 log_command(user_id, target, port, time)
@@ -232,7 +231,7 @@ def handle_bgmi(message):
             response = "✅ Usage :- /bgmi <target> <port> <time>"  # Updated command syntax
     else:
         response = """❌ You Are Not Authorized To Use This Command ❌.
-                      🛒 Please Buy From @SHADOW_DEVELOPER"""
+                      🛒 Please Buy From @Creator_Billa"""
 
     bot.reply_to(message, response)
 
@@ -270,8 +269,8 @@ def show_help(message):
 🤖 To See Admin Commands:
 💥 /admincmd : Shows All Admin Commands.
 
-🚀 Buy From :- @SHADOW_DEVELOPER
-🚀 Official Channel :- https://t.me/SHADOW_DEVELOPER
+🚀 Buy From :- @Creator_Billa
+🚀 Official Channel :- https://t.me/Creator_Billa
 '''
     for handler in bot.message_handlers:
         if hasattr(handler, 'commands'):
@@ -286,9 +285,9 @@ def show_help(message):
 @bot.message_handler(commands=['start'])
 def welcome_start(message):
     user_name = message.from_user.first_name
-    response = f'''👋🏻Welcome to The Bot, ™『SHADOW CHEAT』™ 💖
-                    🤖Feel Free to Explore. 
-                    ✅Join :- https://t.me/+LK3NFHnBCeQxODM1'''
+    response = f'''👋🏻Welcome to The Bot, ™『Creator_Billa』™ 💖
+                🤖Feel Free to Explore. 
+                ✅Join :- https://t.me/Creator_Billa'''
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['rules'])
